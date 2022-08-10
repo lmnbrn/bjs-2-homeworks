@@ -17,7 +17,7 @@ function compareArrays(arr1, arr2) {
 function advancedFilter(arr) {
   let resultArr;
 
-  resultArr = arr.filter(arr => (arr > 0) && (arr % 3 ===0)).map(arr => arr * 10);
+  resultArr = arr.filter(arr => (arr > 0) && (arr % 3 === 0)).map(arr => arr * 10);
 
   return resultArr;
 }
