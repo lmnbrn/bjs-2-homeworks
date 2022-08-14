@@ -38,6 +38,7 @@ class AlarmClock {
     }
     start() {
         let currentTime = this.getCurrentFormattedTime();
+        checkClock = checkClock.bind(this);
         function checkClock(clock, time) {
           if (clock.time === time) {
             return clock.param();
