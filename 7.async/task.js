@@ -37,21 +37,11 @@ class AlarmClock {
         return (hour + ':' + min);
     }
     start() {
-        let currentTime = this.getCurrentFormattedTime();
-        checkClock = checkClock.bind(this);
-        function checkClock(clock, time) {
-          if (clock.time === time) {
-            return clock.param();
-          } 
-        }
-        if (this.timerId === null) {
-          this.timerId = setInterval(getClock(this.alarmCollection));     
-          function getClock(clock) {
-            for (let i = 0; i < clock.length; i++) {
-              checkClock(clock[i], currentTime);
-            }
-          }       
-        }     
+      let verification = checkClock.bind(this);
+      function checkClock(AlarmClock) {
+         if (AlarmClock.time === this.getCurrentFormattedTime()) AlarmClock.func();
+      }
+      if (!this.timerId) this.timerID = setInterval(() => this.alarmCollection.forEach(alarm => verification(alarm)), 100);
     }
     stop() {
         if (this.timerId !== null) {
